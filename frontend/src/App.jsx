@@ -74,6 +74,19 @@ function App() {
     }
   };
 
+  // Delete site handler
+  const handleDeleteSite = async (id) => {
+    if (window.confirm('Are you sure you want to delete this construction site?')) {
+      try {
+        await axios.delete(`http://localhost:8080/api/sites/${id}`);
+        fetchData();
+      } catch (error) {
+        console.error("Error deleting site:", error);
+        alert(error.response?.data?.message || "Failed to delete site. Ensure no active workers are assigned to this site before deleting.");
+      }
+    }
+  };
+
   // Open worker modal for creation
   const handleCreateWorkerClick = () => {
     setSelectedWorker(null);
@@ -671,12 +684,13 @@ function App() {
                           <th className="pb-3 px-2">Location</th>
                           <th className="pb-3 px-2">Active Crew Deployed</th>
                           <th className="pb-3 px-2">Status</th>
+                          <th className="pb-3 px-2 text-right">Actions</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-[#21262d]/40">
                         {sites.length === 0 ? (
                           <tr>
-                            <td colSpan="5" className="text-center py-12 text-slate-500 text-sm">
+                            <td colSpan="6" className="text-center py-12 text-slate-500 text-sm">
                               No construction sites registered. Click "Register New Site" to add one.
                             </td>
                           </tr>
@@ -701,6 +715,17 @@ function App() {
                                   <span className="text-xs px-2 py-0.5 font-bold uppercase rounded-md tracking-wide bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                                     ACTIVE
                                   </span>
+                                </td>
+                                <td className="py-4 px-2 text-right">
+                                  <button 
+                                    onClick={() => handleDeleteSite(site.id)}
+                                    className="p-1.5 text-slate-400 hover:text-rose-500 hover:bg-rose-500/10 border border-transparent hover:border-rose-500/20 rounded-lg transition-all" 
+                                    title="Delete Site"
+                                  >
+                                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                  </button>
                                 </td>
                               </tr>
                             );

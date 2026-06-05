@@ -34,4 +34,11 @@ public class SiteController {
     public List<Site> getAllSites() {
         return siteService.getAllSites();
     }
+
+    @DeleteMapping("/{id}")
+    @Operation(summary = "Delete a construction site", description = "Removes a construction site record by ID.")
+    public ResponseEntity<String> deleteSite(@PathVariable Long id) {
+        siteService.deleteSite(id);
+        return ResponseEntity.ok("Site deleted successfully");
+    }
 }

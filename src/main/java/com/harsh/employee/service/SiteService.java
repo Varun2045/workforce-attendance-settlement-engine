@@ -6,4 +6,5 @@ import java.util.List;
 public interface SiteService {
     Site saveSite(Site site);
     List<Site> getAllSites();
+    void deleteSite(Long id);
 }
