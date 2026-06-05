@@ -4,14 +4,14 @@ import com.harsh.employee.model.AttendanceLog;
 import com.harsh.employee.service.CacheService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
 
 @Service
-@ConditionalOnProperty(name = "app.cache.provider", havingValue = "none", matchIfMissing = true)
+@ConditionalOnExpression("!'${app.cache.provider:}'.equalsIgnoreCase('redis')")
 public class NoOpCacheService implements CacheService {
     private static final Logger log = LoggerFactory.getLogger(NoOpCacheService.class);
 
