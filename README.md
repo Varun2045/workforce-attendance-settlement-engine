@@ -117,6 +117,5 @@ The React client delegates server communications to a custom-configured Axios wr
 
 The REST API exposes interactive testing endpoints. Once the backend is running, you can access the Swagger UI dashboard at:
 
-👉 **[Swagger UI Documentation Dashboard](http://localhost:8080/swagger-ui/index.html)**
+👉 **[Swagger UI Documentation Dashboard](https://workforce-backend-ehz4.onrender.com/swagger-ui/index.html)**
 
-*   **OpenAPI specification URL**: `http://localhost:8080/v3/api-docs`
