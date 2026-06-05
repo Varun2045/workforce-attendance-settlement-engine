@@ -27,6 +27,8 @@ This application serves as a workforce monitoring platform mapping construction 
 
 ![Workforce Manager HRMS Dashboard](assets/dashboard.png)
 
+👉 **[Local Dashboard Dev Link (Vite server)](http://localhost:5173)**
+
 ---
 
 ## 🏛️ Key Architectural Decisions
