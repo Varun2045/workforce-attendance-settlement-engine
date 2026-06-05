@@ -31,6 +31,14 @@ This application serves as a workforce monitoring platform mapping construction 
 
 ---
 
+## 🔗 Live Demo Link
+
+Once deployed, the live production interface is accessible at:
+
+👉 **[Live Frontend Application Demo](https://workforce-attendance-settlement-engine.vercel.app)** *(Note: Replace this placeholder link with your actual Vercel/Netlify deployment URL once hosted)*
+
+---
+
 ## 🏛️ Key Architectural Decisions
 
 ### 1. Interface Segregation for Cache Resilience
