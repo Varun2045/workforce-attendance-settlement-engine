@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080';
+
 function App() {
   const [workers, setWorkers] = useState([]);
   const [sites, setSites] = useState([]);
@@ -45,8 +47,8 @@ function App() {
     try {
       setLoading(true);
       const [workersRes, sitesRes] = await Promise.all([
-        axios.get('http://localhost:8080/api/workers'),
-        axios.get('http://localhost:8080/api/sites')
+        axios.get(`${API_BASE}/api/workers`),
+        axios.get(`${API_BASE}/api/sites`)
       ]);
       setWorkers(workersRes.data);
       setSites(sitesRes.data);
@@ -65,7 +67,7 @@ function App() {
   const handleDeleteWorker = async (id) => {
     if (window.confirm('Are you sure you want to delete this worker?')) {
       try {
-        await axios.delete(`http://localhost:8080/api/workers/${id}`);
+        await axios.delete(`${API_BASE}/api/workers/${id}`);
         fetchData();
       } catch (error) {
         console.error("Error deleting worker:", error);
@@ -78,7 +80,7 @@ function App() {
   const handleDeleteSite = async (id) => {
     if (window.confirm('Are you sure you want to delete this construction site?')) {
       try {
-        await axios.delete(`http://localhost:8080/api/sites/${id}`);
+        await axios.delete(`${API_BASE}/api/sites/${id}`);
         fetchData();
       } catch (error) {
         console.error("Error deleting site:", error);
@@ -137,7 +139,7 @@ function App() {
         ...assignWorker,
         site: selectedSite
       };
-      await axios.put(`http://localhost:8080/api/workers/${assignWorker.id}`, payload);
+      await axios.put(`${API_BASE}/api/workers/${assignWorker.id}`, payload);
       setShowAssignModal(false);
       fetchData();
     } catch (error) {
@@ -172,10 +174,10 @@ function App() {
 
       if (selectedWorker) {
         // Edit Mode: PUT /api/workers/{id}
-        await axios.put(`http://localhost:8080/api/workers/${selectedWorker.id}`, payload);
+        await axios.put(`${API_BASE}/api/workers/${selectedWorker.id}`, payload);
       } else {
         // Create Mode: POST /api/workers
-        await axios.post('http://localhost:8080/api/workers', payload);
+        await axios.post(`${API_BASE}/api/workers`, payload);
       }
       
       setShowModal(false);
@@ -204,7 +206,7 @@ function App() {
         location: siteFormData.location,
         isActive: true
       };
-      await axios.post('http://localhost:8080/api/sites', payload);
+      await axios.post(`${API_BASE}/api/sites`, payload);
       setSiteFormData({ siteName: '', location: '' });
       setShowSiteModal(false);
       fetchData();
