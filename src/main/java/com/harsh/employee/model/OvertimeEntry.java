@@ -21,10 +21,12 @@ public class OvertimeEntry {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "worker_id", nullable = false)
+    @com.fasterxml.jackson.annotation.JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Worker worker;
 
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "attendance_log_id", nullable = false, unique = true)
+    @com.fasterxml.jackson.annotation.JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private AttendanceLog attendanceLog;
 
     @Column(name = "entry_date", nullable = false)
