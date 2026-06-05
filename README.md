@@ -32,9 +32,11 @@ This application serves as a workforce monitoring platform mapping construction 
 
 The production build has been deployed on Render:
 
-👉 **[Live Frontend Application Dashboard](https://workforce-hrms-3xuf.onrender.com)**
-👉 **[Live Backend API Server](https://workforce-backend-ehz4.onrender.com)**
-👉 **[Live Swagger API Documentation UI](https://workforce-backend-ehz4.onrender.com/swagger-ui/index.html)**
+👉 **Live Frontend Application Dashboard : https://workforce-hrms-3xuf.onrender.com**
+
+👉 **Live Backend API Server : https://workforce-backend-ehz4.onrender.com**
+
+👉 **Live Swagger API Documentation UI : https://workforce-backend-ehz4.onrender.com/swagger-ui/index.html**
 
 ---
 
