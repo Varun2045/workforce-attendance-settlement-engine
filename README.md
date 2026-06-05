@@ -25,7 +25,7 @@ This application serves as a workforce monitoring platform mapping construction 
 
 ## 🖥️ Dashboard Preview
 
-![Workforce Manager HRMS Dashboard](assets/dashboard_preview.png)
+![Workforce Manager HRMS Dashboard](assets/dashboard.png)
 
 ---
 
